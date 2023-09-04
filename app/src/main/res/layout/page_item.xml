@@ -37,6 +37,7 @@
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:text="010-0000-0000"
+            android:textAlignment="textEnd"
             android:textSize="20sp" />
 
         <View
