@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyPageFragment"
-    android:background="@drawable/mp_rainbow">
+    android:background="@drawable/mp_rainbow"
+    tools:context=".MyPageFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="550dp">
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,10 +52,10 @@
                     android:layout_height="30dp"
                     android:layout_gravity="end"
                     android:layout_margin="5dp"
-                    app:tint="@color/orange"
                     app:layout_constraintEnd_toEndOf="@+id/iv_mp_stroke"
                     app:layout_constraintTop_toTopOf="@+id/iv_mp_stroke"
-                    app:srcCompat="@drawable/edit_10" />
+                    app:srcCompat="@drawable/edit_10"
+                    app:tint="@color/orange" />
 
                 <TextView
                     android:id="@+id/textView"
@@ -78,4 +81,4 @@
         </LinearLayout>
     </ScrollView>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
