@@ -10,10 +10,7 @@
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="550dp"
-        android:layout_constraintEnd_toEndOf="parent"
-        android:layout_constraintStart_toStartOf="parent"
-        android:layout_constraintTop_toTopOf="parent">
+        android:layout_height="550dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,11 +25,6 @@
                     android:id="@+id/iv_mp_stroke"
                     android:layout_width="300dp"
                     android:layout_height="300dp"
-                    android:layout_constraintBottom_toBottomOf="@+id/iv_mp_profile"
-                    android:layout_constraintEnd_toEndOf="@+id/iv_mp_profile"
-                    android:layout_constraintStart_toStartOf="@+id/iv_mp_profile"
-                    android:layout_constraintTop_toTopOf="@+id/iv_mp_profile"
-                    android:srcCompat="@drawable/bonobono"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_mp_profile"
                     app:layout_constraintEnd_toEndOf="@+id/iv_mp_profile"
                     app:layout_constraintStart_toStartOf="@+id/iv_mp_profile"
@@ -43,14 +35,10 @@
                     android:id="@+id/iv_mp_profile"
                     android:layout_width="300dp"
                     android:layout_height="300dp"
-                    android:layout_constraintEnd_toEndOf="parent"
-                    android:layout_constraintStart_toStartOf="parent"
-                    android:layout_constraintTop_toTopOf="parent"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
                     android:padding="3dp"
                     android:src="@drawable/bonobono"
-                    android:srcCompat="@drawable/mp_stroke_rect"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -59,11 +47,8 @@
                     android:id="@+id/iv_mp_modify"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_constraintEnd_toEndOf="@+id/iv_mp_profile"
-                    android:layout_constraintTop_toTopOf="@+id/iv_mp_profile"
                     android:layout_gravity="end"
                     android:layout_margin="5dp"
-                    android:srcCompat="@drawable/edit_10"
                     app:tint="#FF7511"
                     app:layout_constraintEnd_toEndOf="@+id/iv_mp_stroke"
                     app:layout_constraintTop_toTopOf="@+id/iv_mp_stroke"
@@ -73,9 +58,6 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_constraintEnd_toEndOf="@+id/iv_mp_profile"
-                    android:layout_constraintStart_toStartOf="@+id/iv_mp_profile"
                     android:layout_marginBottom="15dp"
                     android:text="내 이름"
                     android:textAlignment="center"
