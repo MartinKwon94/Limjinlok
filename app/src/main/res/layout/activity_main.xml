@@ -23,4 +23,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tabLayout"
+        android:src="@drawable/ic_baseline_add"
+        android:layout_margin="30dp"
+        android:contentDescription="@string/main_activity_fab_add_contact_desc" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
