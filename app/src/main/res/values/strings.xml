@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Limjinlok</string>
+    <string name="main_activity_fab_add_contact_desc">add content data</string>
 
 </resources>
