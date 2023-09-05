@@ -49,7 +49,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="end"
                     android:layout_margin="5dp"
-                    app:tint="#FF7511"
+                    app:tint="@color/orange"
                     app:layout_constraintEnd_toEndOf="@+id/iv_mp_stroke"
                     app:layout_constraintTop_toTopOf="@+id/iv_mp_stroke"
                     app:srcCompat="@drawable/edit_10" />
@@ -61,7 +61,7 @@
                     android:layout_marginBottom="15dp"
                     android:text="내 이름"
                     android:textAlignment="center"
-                    android:textColor="#FF7511"
+                    android:textColor="@color/orange"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_mp_stroke"
                     app:layout_constraintEnd_toEndOf="@+id/iv_mp_stroke"
