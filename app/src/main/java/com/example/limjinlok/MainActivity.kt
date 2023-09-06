@@ -8,7 +8,7 @@ import com.example.limjinlok.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     private var rainbow = GradientDrawable(
         GradientDrawable.Orientation.TL_BR,
@@ -19,12 +19,13 @@ class MainActivity : AppCompatActivity() {
             Color.CYAN,
             Color.GREEN,
             Color.YELLOW,
-            Color.RED
+            Color.RED,
         )
     )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.root.background = rainbow
     }
