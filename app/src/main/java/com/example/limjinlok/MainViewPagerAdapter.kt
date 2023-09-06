@@ -13,6 +13,10 @@ class MainViewPagerAdapter(fragmentManager: FragmentActivity) :
         tabList.add(MainTabsModel(fragment, title))
     }
 
+    fun getFragmentByIndex(position: Int): Fragment{
+        return tabList[position].fragment
+    }
+
     fun getTitleByIndex(position: Int): String {
         return tabList[position].title
     }

@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.ViewPager2
 import com.example.limjinlok.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -30,8 +31,22 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.root.background = rainbow
-
         initView()
+        viewPagerChanged()
+    }
+
+    private fun viewPagerChanged() = with(binding) {
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                val nFragment = mainViewPagerAdapter.getFragmentByIndex(position)
+                if (nFragment is Contactlist){
+                    addContactButton.show()
+                } else {
+                    addContactButton.hide()
+                }
+            }
+        })
     }
 
     private fun initView() = with(binding) {
