@@ -12,6 +12,11 @@ class MainViewPagerAdapter(fragmentManager: FragmentActivity) :
     fun addTabList(fragment: Fragment, title: String) {
         tabList.add(MainTabsModel(fragment, title))
     }
+
+    fun getTitleByIndex(position: Int): String {
+        return tabList[position].title
+    }
+
     override fun getItemCount(): Int = tabList.size
 
     override fun createFragment(position: Int): Fragment {
