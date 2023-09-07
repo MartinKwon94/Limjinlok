@@ -12,7 +12,7 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class MyPageFragment : Fragment() {
-    val adapter = ContactDetailAdapter()
+    private var adapter = ContactDetailAdapter()
     private var _binding: FragmentMyPageBinding? = null
     private val binding get() = _binding!!
 
