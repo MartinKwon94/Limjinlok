@@ -19,7 +19,7 @@ class Contactlist : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentContactlistBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
@@ -35,9 +35,9 @@ class Contactlist : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
     }
 }

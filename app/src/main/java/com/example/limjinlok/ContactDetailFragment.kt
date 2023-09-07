@@ -28,7 +28,7 @@ class ContactDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentContactDetailBinding.inflate(inflater, container, false)
 
 //        arguments?.getInt(image)
@@ -55,11 +55,10 @@ class ContactDetailFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
 
-
-        override fun onDestroyView() {
-            super.onDestroyView()
-            _binding = null
-        }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
