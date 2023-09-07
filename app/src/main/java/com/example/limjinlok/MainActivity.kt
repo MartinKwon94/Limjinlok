@@ -12,7 +12,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val dataList = mutableListOf<ContactlistData>()
-    private val adapter = ContactlistAdapter(this, dataList)
     private val mainViewPagerAdapter by lazy { MainViewPagerAdapter(this@MainActivity) }
 
     private var rainbow = GradientDrawable(
@@ -47,13 +46,6 @@ class MainActivity : AppCompatActivity() {
         dataList.add(ContactlistData(R.drawable.zen,"Zendaya","Zen", false))
         dataList.add(ContactlistData(R.drawable.ash,"한지우","지우", false))
         dataList.add(ContactlistData(R.drawable.garyoak,"오바람","재수탱", false))
-
-        val bundle = Bundle()
-        bundle.putParcelableArrayList("dataList", ArrayList(dataList))
-
-        val contactlist = ContactlistFragment
-        contactlist.arguments = bundle
-
     }
 
     private fun viewPagerChanged() = with(binding) {
@@ -63,6 +55,7 @@ class MainActivity : AppCompatActivity() {
                 val nFragment = mainViewPagerAdapter.getFragmentByIndex(position)
                 if (nFragment is ContactlistFragment){
                     addContactButton.show()
+
                 } else {
                     addContactButton.hide()
                 }
@@ -71,6 +64,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() = with(binding) {
+        val bundle = Bundle()
+        bundle.putParcelableArrayList("dataList", ArrayList(dataList))
+        val contactlist = ContactlistFragment
+        contactlist.arguments = bundle
         mainViewPagerAdapter.addTabList(ContactlistFragment(), "Contact")
         mainViewPagerAdapter.addTabList(MyPageFragment(), "My Page")
         viewPager.adapter = mainViewPagerAdapter

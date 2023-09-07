@@ -32,9 +32,7 @@ class ContactlistFragment : Fragment() {
 
         // RecyclerView를 찾아서 어댑터와 레이아웃 매니저를 설정합니다.
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewContacts)
-        val adapter = ContactlistAdapter(requireContext() as MainActivity,
-            (dataList ?: emptyList()) as MutableList<ContactlistData>
-        )
+        val adapter = ContactlistAdapter(dataList as MutableList<ContactlistData>)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
