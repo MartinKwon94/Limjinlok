@@ -12,7 +12,7 @@ private const val ARG_PARAM2 = "param2"
 
 class MyPageFragment : Fragment() {
 
-    private lateinit var _binding: FragmentMyPageBinding
+    private var _binding: FragmentMyPageBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class MyPageFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentMyPageBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -52,9 +52,10 @@ class MyPageFragment : Fragment() {
                 }
             }
 
-        override fun onDestroyView() {
-            super.onDestroyView()
-            _binding = null
-        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
