@@ -33,12 +33,12 @@ class MyPageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentMyPageBinding.bind(view)
 
-       /* binding.asdasd.setOnClickListenr {
+        binding.asdasd.setOnClickListenr {
             val name = binding.text.toString()
             val number = binding.text.toString()
             val email = binding.text.toString()
             val comment = binding.text.toString()
-        }*/
+        }
     }
 
     companion object {
