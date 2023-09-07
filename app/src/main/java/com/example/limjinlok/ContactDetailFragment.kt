@@ -37,6 +37,7 @@ class ContactDetailFragment : Fragment() {
 //        binding.Nickname.text =
 //            //어댑터에서 받아오기?
 
+
         return binding.root
     }
 
