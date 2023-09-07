@@ -4,12 +4,14 @@ import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.limjinlok.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
+    private val dataList = mutableListOf<ContactlistData>()
+    private val adapter = ContactlistAdapter(this, dataList)
 
     private var rainbow = GradientDrawable(
         GradientDrawable.Orientation.TL_BR,
@@ -31,9 +33,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.root.background = rainbow
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewContacts)
-
-        val dataList = mutableListOf<ContactlistData>()
         dataList.add(ContactlistData(R.drawable.martinkwon,"권민석","권마틴", false ))
         dataList.add(ContactlistData(R.drawable.ryu,"류연주","류",false))
         dataList.add(ContactlistData(R.drawable.limyo,"임요환","테란의 황제",false))
@@ -47,8 +46,18 @@ class MainActivity : AppCompatActivity() {
         dataList.add(ContactlistData(R.drawable.ash,"한지우","지우", false))
         dataList.add(ContactlistData(R.drawable.garyoak,"오바람","재수탱", false))
 
-        val adapter = ContactlistAdapter(this, dataList)
-        recyclerView.adapter = adapter
+        val bundle = Bundle()
+        bundle.putParcelableArrayList("dataList", ArrayList(dataList))
+
+        val contactlist = ContactlistFragment
+        contactlist.arguments = bundle
+
+
+
+
+
+
+
 
     }
 }

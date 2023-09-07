@@ -1,16 +1,16 @@
 package com.example.limjinlok
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class ContactlistAdapter(val mContext: Context, val mItems: MutableList<ContactlistData>) :
+class ContactlistAdapter(val mContext: MainActivity, val mItems: MutableList<ContactlistData>) :
     RecyclerView.Adapter<ContactViewholder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewholder {
         val view = LayoutInflater.from(mContext).inflate(R.layout.item_contactlist, parent, false)
         return ContactViewholder(view)
+
     }
 
     override fun onBindViewHolder(holder: ContactViewholder, position: Int) {
@@ -30,6 +30,8 @@ class ContactlistAdapter(val mContext: Context, val mItems: MutableList<Contactl
     override fun getItemCount(): Int {
         return mItems.size
     }
+
+
 }
 
 
