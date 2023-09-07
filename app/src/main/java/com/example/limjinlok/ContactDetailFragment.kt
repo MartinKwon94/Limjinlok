@@ -5,13 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.limjinlok.databinding.FragmentContactDetailBinding
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class ContactDetailFragment : Fragment() {
-
+    private var adapter = ContactDetailAdapter()
     private var param1: String? = null
     private var param2: String? = null
 
@@ -30,7 +31,8 @@ class ContactDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentContactDetailBinding.inflate(inflater, container, false)
-
+        binding.cdRecyclerview.adapter = adapter
+        binding.cdRecyclerview.layoutManager = LinearLayoutManager(context)
 //        arguments?.getInt(image)
 //        binding.Name.text =
 //        binding.Number.text =
