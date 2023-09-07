@@ -4,7 +4,7 @@
 
     <stroke
         android:width="5dp"
-        android:color="@color/orange"
+        android:color="#FF7511"
         />
 
 </shape>
