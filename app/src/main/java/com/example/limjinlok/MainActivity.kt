@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         dataList.add(ContactlistData(R.drawable.jigaebot,"조병현","지게로봇", false))
         dataList.add(ContactlistData(R.drawable.leejamong,"홍현민","에펙하쉴", false))
         dataList.add(ContactlistData(R.drawable.hongjin,"홍진호","저그의 황제", false))
-        dataList.add(ContactlistData(R.drawable.cookiemonster,"황일규","쿠키몬스커",false))
+        dataList.add(ContactlistData(R.drawable.cookiemonster,"황일","쿠키몬스커",false))
         dataList.add(ContactlistData(R.drawable.tom,"Tom","Spiderman", false))
         dataList.add(ContactlistData(R.drawable.tim,"Timothée","Tim", false))
         dataList.add(ContactlistData(R.drawable.zen,"Zendaya","Zen", false))
