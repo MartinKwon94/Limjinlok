@@ -19,7 +19,7 @@ class Dialog : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btn = findViewById<FloatingActionButton>(R.id.DialogCaller)
+        val btn = findViewById<FloatingActionButton>(R.id.add_contact_button)
         btn.setOnClickListener {
 
             //플로팅버튼 클릭시 다이얼로그 시작
