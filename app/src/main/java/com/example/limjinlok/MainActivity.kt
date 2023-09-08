@@ -3,6 +3,7 @@ package com.example.limjinlok
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.limjinlok.databinding.ActivityMainBinding
@@ -38,17 +39,21 @@ class MainActivity : AppCompatActivity() {
         viewPagerChanged()
     }
 
+
     private fun initData() {
         addUser(R.drawable.martinkwon, "권민석", "권마틴", "", "", "", "")
-        addUser(R.drawable.limyo, "임요환", "테란의 황제", "", "", "", "")
-        addUser(R.drawable.jigaebot, "조병현", "지게로봇", "", "", "", "")
-        addUser(R.drawable.leejamong, "홍현민", "에펙하쉴", "", "", "", "")
-        addUser(R.drawable.hongjin, "홍진호", "저그의 황제", "", "", "", "")
-        addUser(R.drawable.cookiemonster, "황일규", "쿠키몬스커", "", "", "", "")
-        addUser(R.drawable.tim, "Timothée", "Tim", "", "", "", "")
-        addUser(R.drawable.zen, "Zendaya", "Zen", "", "", "", "")
-        addUser(R.drawable.ash, "한지우", "지우", "", "", "", "")
-        addUser(R.drawable.garyoak, "오바람", "재수탱", "", "", "", "")
+
+        addUser(R.drawable.ryu, "류연주", "류", "", "","","")
+        addUser(R.drawable.limyo, "임요환", "테란의 황제", "", "","","")
+        addUser(R.drawable.jigaebot, "조병현", "지게로봇", "", "","","")
+        addUser(R.drawable.leejamong, "홍현민", "에펙하쉴", "", "","","")
+        addUser(R.drawable.hongjin, "홍진호", "저그의 황제", "", "","","")
+        addUser(R.drawable.cookiemonster, "황일규", "쿠키몬스커", "", "","","")
+        addUser(R.drawable.tom, "Tom", "Spiderman", "", "","","")
+        addUser(R.drawable.tim, "Timothée", "Tim", "", "","","")
+        addUser(R.drawable.zen, "Zendaya", "Zen", "", "","","")
+        addUser(R.drawable.ash, "한지우", "지우", "", "","","")
+        addUser(R.drawable.garyoak, "오바람", "재수탱", "", "","","")
     }
 
     private fun viewPagerChanged() = with(binding) {
