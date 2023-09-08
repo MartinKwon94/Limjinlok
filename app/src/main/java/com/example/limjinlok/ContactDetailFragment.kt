@@ -33,10 +33,10 @@ class ContactDetailFragment : Fragment() {
             val aNumber = args.getString("number")
             val aNickname = args.getString("nickname")
 
-            binding.ctPic.setImageResource(ctPic)
-            binding.aName.text = arguments?.getString("name")
-            binding.aNumber.text = arguments?.getString("number")
-            binding.aNickname.text = arguments?.getString("nickname")
+//            binding.ctPic.setImageResource(ctPic)
+//            binding.aName.text = arguments?.getString("name")
+//            binding.aNumber.text = arguments?.getString("number")
+//            binding.aNickname.text = arguments?.getString("nickname")
         }
 
         return binding.root
