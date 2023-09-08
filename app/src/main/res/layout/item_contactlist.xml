@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#ffffff"
     app:cardCornerRadius="15dp"
     app:cardElevation="4dp"
-    app:cardUseCompatPadding="true"
-    android:background="#ffffff">
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,60 +34,58 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="이름"
             android:textColor="@color/orange"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_margin="15dp"
-            android:layout_weight="1"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ProfileImg"
             app:layout_constraintEnd_toStartOf="@+id/tv_nickname"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/ProfileImg"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:layout_constraintHorizontal_weight="1"/>
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
             android:id="@+id/tv_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_margin="15dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="별명"
             android:textColor="@color/orange"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_margin="15dp"
-            android:layout_weight="1"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_number"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/tv_number"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.545"
-            app:layout_constraintVertical_chainStyle="packed"
-            app:layout_constraintHorizontal_weight="1"/>
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <ImageButton
             android:id="@+id/btn_fav"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="0dp"
-            android:layout_marginStart="0dp"
             android:layout_marginBottom="15dp"
-            android:src="@drawable/staroff"
-            android:background="@android:color/transparent"
             android:layout_weight="1"
+            android:background="@android:color/transparent"
             android:clickable="true"
+            android:src="@drawable/staroff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
-
 
 
 </androidx.cardview.widget.CardView>

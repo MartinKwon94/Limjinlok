@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.limjinlok.databinding.ActivityMainBinding
+import com.example.limjinlok.model.ContactListData
+import com.example.limjinlok.model.UserDataModel
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -37,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initData() {
-        addUser(R.drawable.martinkwon, "권민석", "권마틴", "", "", "","")
+        addUser(R.drawable.martinkwon, "권민석", "권마틴", "", "", "", "")
 //        dataList.add(addUser(R.drawable.ryu, "류연주", "류", false))
 //        dataList.add(addUser(R.drawable.limyo, "임요환", "테란의 황제", false))
 //        dataList.add(addUser(R.drawable.jigaebot, "조병현", "지게로봇", false))
@@ -56,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 val nFragment = mainViewPagerAdapter.getFragmentByIndex(position)
-                if (nFragment is ContactlistFragment) {
+                if (nFragment is ContactListFragment) {
                     addContactButton.show()
 
                 } else {
@@ -68,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView() = with(binding) {
         mainViewPagerAdapter.addTabList(
-            ContactlistFragment.newInstance(ArrayList(dataList)),
+            ContactListFragment.newInstance(ArrayList(dataList)),
             "Contact"
         )
         mainViewPagerAdapter.addTabList(MyPageFragment(), "My Page")

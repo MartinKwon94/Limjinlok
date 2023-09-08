@@ -9,8 +9,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.limjinlok.databinding.FragmentContactlistBinding
+import com.example.limjinlok.model.ContactListData
 
-class ContactlistFragment : Fragment() {
+class ContactListFragment : Fragment() {
 
     private var _binding: FragmentContactlistBinding? = null
     private val binding get() = _binding!!
@@ -36,7 +37,7 @@ class ContactlistFragment : Fragment() {
 
         // RecyclerView를 찾아서 어댑터와 레이아웃 매니저를 설정합니다.
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewContacts)
-        val adapter = dataList?.let { ContactlistAdapter(it) }
+        val adapter = dataList?.let { ContactListAdapter(it) }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
     }
@@ -47,7 +48,7 @@ class ContactlistFragment : Fragment() {
         lateinit var arguments: Bundle
 
         @JvmStatic
-        fun newInstance(dataList: ArrayList<ContactListData>) = ContactlistFragment().apply {
+        fun newInstance(dataList: ArrayList<ContactListData>) = ContactListFragment().apply {
             arguments = Bundle().apply {
                 putParcelableArrayList("key", dataList)
             }
