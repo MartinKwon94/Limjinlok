@@ -1,11 +1,14 @@
 package com.example.limjinlok
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.limjinlok.databinding.FragmentContactlistBinding
@@ -39,7 +42,20 @@ class ContactListFragment : Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewContacts)
         val adapter = dataList?.let {
             ContactListAdapter(it) { position, item ->
-                // ToDo contactdetialacitivy로 넘어가기 position은 이게 몇번째 아이템인지 item은 해당 아이템의 data만 들어가 있습니다.
+
+//                binding.recyclerViewContacts.setOnClickListener{
+//                    binding.ProfileImg.setImageResource(addUser[position].Image)
+//                    binding.
+//                }
+
+                val intent = Intent (getActivity(), ContactDetailActivity::class.java)
+//                intent.putExtra("key",position)
+//                intent.putExtra("key", dataList[position])
+                getActivity()?.startActivity(intent)
+//                ActivityResultLauncher.launch(intent)
+
+
+// ToDo contactdetialacitivy로 넘어가기 position은 이게 몇번째 아이템인지 item은 해당 아이템의 data만 들어가 있습니다.
             }
         }
         recyclerView.adapter = adapter
