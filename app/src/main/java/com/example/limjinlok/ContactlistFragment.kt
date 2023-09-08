@@ -1,5 +1,6 @@
 package com.example.limjinlok
 
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,15 +10,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.limjinlok.databinding.FragmentContactlistBinding
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-
 class ContactlistFragment : Fragment() {
 
     private var _binding: FragmentContactlistBinding? = null
     private val binding get() = _binding!!
-    private var dataList: List<ContactlistData>? = null
+    private val dataList by lazy {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            arguments?.getParcelableArrayList("key", ContactlistData::class.java)
+        } else {
+            arguments?.getParcelableArrayList("key")
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,14 +30,15 @@ class ContactlistFragment : Fragment() {
         val view = binding.root
         return view
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         // RecyclerView를 찾아서 어댑터와 레이아웃 매니저를 설정합니다.
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewContacts)
-        val adapter = ContactlistAdapter(dataList as MutableList<ContactlistData>)
+        val adapter = dataList?.let { ContactlistAdapter(it) }
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.layoutManager = LinearLayoutManager(context)
     }
 
 
@@ -43,14 +47,13 @@ class ContactlistFragment : Fragment() {
         lateinit var arguments: Bundle
 
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ContactlistFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        fun newInstance(dataList: ArrayList<ContactlistData>) = ContactlistFragment().apply {
+            arguments = Bundle().apply {
+                putParcelableArrayList("key", dataList)
             }
+        }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
