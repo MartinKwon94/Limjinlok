@@ -14,7 +14,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class Dialog : AppCompatActivity() {
 
-    //바인딩으로 코드 짤 경우 해당 문구 사용
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     @SuppressLint("MissingInflatedId", "SetTextI18n", "ResourceType")
