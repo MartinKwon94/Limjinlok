@@ -43,16 +43,11 @@ class ContactListFragment : Fragment() {
         val adapter = dataList?.let {
             ContactListAdapter(it) { position, item ->
 
-//                binding.recyclerViewContacts.setOnClickListener{
-//                    binding.ProfileImg.setImageResource(addUser[position].Image)
-//                    binding.
-//                }
-
                 val intent = Intent (getActivity(), ContactDetailActivity::class.java)
-//                intent.putExtra("key",position)
-//                intent.putExtra("key", dataList[position])
+                intent.putExtra("item_index", position)
+                intent.putExtra("data", item)
                 getActivity()?.startActivity(intent)
-//                ActivityResultLauncher.launch(intent)
+
 
 
 // ToDo contactdetialacitivy로 넘어가기 position은 이게 몇번째 아이템인지 item은 해당 아이템의 data만 들어가 있습니다.
