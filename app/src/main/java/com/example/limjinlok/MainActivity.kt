@@ -3,6 +3,7 @@ package com.example.limjinlok
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.limjinlok.databinding.ActivityMainBinding
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         initView()
         viewPagerChanged()
     }
+
 
     private fun initData() {
         addUser(R.drawable.martinkwon, "권민석", "권마틴", "", "", "", "")

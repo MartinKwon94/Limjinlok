@@ -12,4 +12,3 @@ class ContactViewHolderOdd (itemView: View) : RecyclerView.ViewHolder(itemView) 
     val Od_tv_nickname: TextView = itemView.findViewById(R.id.tv_nicknameodd)
     val Od_favBut: ImageButton = itemView.findViewById(R.id.btn_favodd)
 }
-}
