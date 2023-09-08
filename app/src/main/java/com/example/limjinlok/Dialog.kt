@@ -22,7 +22,6 @@ class Dialog : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //val btn = findViewById<FloatingActionButton>(R.id.add_contact_button)
         binding.addContactButton.setOnClickListener {
 
             //플로팅버튼 클릭시 다이얼로그 시작
@@ -48,12 +47,10 @@ class Dialog : AppCompatActivity() {
 
                 if(name.isNotBlank() && number.isNotBlank()) {
 
-
                     //위에서 설정된 값을 각각 이미지와 텍스트로 적용하기
                     //testimage, testarea는 둘 다 잘 작동하는지 시험용으로 MainActivity에 만든 이미지뷰, 텍스트뷰 입니다
                     //val testimage = findViewById<ImageView>(R.id.ImageTest)
                     //val testarea = findViewById<TextView>(R.id.testarea)
-
 
                     //연락처 추가때 사용한 이미지를 적용하기(현재 샘플이미지로 처리)
                     //testimage.setImageResource(R.drawable.sample)
@@ -64,14 +61,11 @@ class Dialog : AppCompatActivity() {
                     //이름이나 번호에 공백이 있을시 입력값을 받지않고 다이얼로그가 종료됩니다
                     Toast.makeText(this,"이름과 번호는 필수입니다", Toast.LENGTH_SHORT).show()
                 }
-
             }
-
             //다이얼로그 버튼 기능
             builder.setPositiveButton("확인", confirm)
             builder.setNegativeButton("취소", null)
             builder.show()
         }
-
     }
 }
