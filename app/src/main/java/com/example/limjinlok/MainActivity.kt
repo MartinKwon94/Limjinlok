@@ -40,17 +40,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun initData() {
         addUser(R.drawable.martinkwon, "권민석", "권마틴", "", "", "", "")
-//        dataList.add(addUser(R.drawable.ryu, "류연주", "류", false))
-//        dataList.add(addUser(R.drawable.limyo, "임요환", "테란의 황제", false))
-//        dataList.add(addUser(R.drawable.jigaebot, "조병현", "지게로봇", false))
-//        dataList.add(addUser(R.drawable.leejamong, "홍현민", "에펙하쉴", false))
-//        dataList.add(addUser(R.drawable.hongjin, "홍진호", "저그의 황제", false))
-//        dataList.add(addUser(R.drawable.cookiemonster, "황일규", "쿠키몬스커", false))
-//        dataList.add(addUser(R.drawable.tom, "Tom", "Spiderman", false))
-//        dataList.add(addUser(R.drawable.tim, "Timothée", "Tim", false))
-//        dataList.add(addUser(R.drawable.zen, "Zendaya", "Zen", false))
-//        dataList.add(addUser(R.drawable.ash, "한지우", "지우", false))
-//        dataList.add(addUser(R.drawable.garyoak, "오바람", "재수탱", false))
+        addUser(R.drawable.limyo, "임요환", "테란의 황제", "", "", "", "")
+        addUser(R.drawable.jigaebot, "조병현", "지게로봇", "", "", "", "")
+        addUser(R.drawable.leejamong, "홍현민", "에펙하쉴", "", "", "", "")
+        addUser(R.drawable.hongjin, "홍진호", "저그의 황제", "", "", "", "")
+        addUser(R.drawable.cookiemonster, "황일규", "쿠키몬스커", "", "", "", "")
+        addUser(R.drawable.tim, "Timothée", "Tim", "", "", "", "")
+        addUser(R.drawable.zen, "Zendaya", "Zen", "", "", "", "")
+        addUser(R.drawable.ash, "한지우", "지우", "", "", "", "")
+        addUser(R.drawable.garyoak, "오바람", "재수탱", "", "", "", "")
     }
 
     private fun viewPagerChanged() = with(binding) {
