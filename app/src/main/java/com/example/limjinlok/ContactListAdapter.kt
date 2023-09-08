@@ -31,6 +31,26 @@ class ContactListAdapter(
         holder.itemView.setOnClickListener {
             actions(position, item)
         }
+        holder.favBut.setOnClickListener {
+            item.isFavorite =!item.isFavorite
+            if (item.isFavorite)
+                holder.favBut.setImageResource(R.drawable.staron)
+            else
+                holder.favBut.setImageResource(R.drawable.staroff)
+        }
+        if (item.userData[1].content.length > 5) {
+            val shortenedText = item.userData[1].content.substring(0, 5) + "..."
+            holder.tv_nickname.text = shortenedText
+
+            // 클릭 이벤트 핸들러를 설정하여 전체 내용을 보이게 함
+            holder.tv_nickname.setOnClickListener {
+                holder.tv_nickname.text = item.userData[1].content
+                holder.tv_nickname.setOnClickListener(null)
+            }
+        } else {
+            holder.tv_nickname.text = item.userData[1].content
+        }
+
     }
 
 
