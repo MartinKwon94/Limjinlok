@@ -17,12 +17,6 @@ class ContactDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityContactDetailBinding
 
-    //데이터 원본 필요
-//    private val data: 어댑터? by lazy {
-//        arguments?.getParcelable<어댑터>
-//    }
-//    lateinit var receiveData: 어댑터
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
