@@ -16,7 +16,7 @@ class ContactlistFragment : Fragment() {
     private val binding get() = _binding!!
     private val dataList by lazy {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            arguments?.getParcelableArrayList("key", ContactlistData::class.java)
+            arguments?.getParcelableArrayList("key", ContactListData::class.java)
         } else {
             arguments?.getParcelableArrayList("key")
         }
@@ -47,7 +47,7 @@ class ContactlistFragment : Fragment() {
         lateinit var arguments: Bundle
 
         @JvmStatic
-        fun newInstance(dataList: ArrayList<ContactlistData>) = ContactlistFragment().apply {
+        fun newInstance(dataList: ArrayList<ContactListData>) = ContactlistFragment().apply {
             arguments = Bundle().apply {
                 putParcelableArrayList("key", dataList)
             }
