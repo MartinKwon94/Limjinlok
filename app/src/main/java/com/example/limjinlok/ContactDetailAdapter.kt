@@ -3,14 +3,14 @@ package com.example.limjinlok
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.limjinlok.databinding.PageItemBinding
+import com.example.limjinlok.databinding.ItemPageBinding
 
-class ContactDetailAdapter () : RecyclerView.Adapter<ContactDetailAdapter.Holder>() {
+class ContactDetailAdapter() : RecyclerView.Adapter<ContactDetailAdapter.Holder>() {
 
 
     //아이템 레이아웃을 return
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val binding = PageItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemPageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return Holder(binding)
     }
 
@@ -24,7 +24,7 @@ class ContactDetailAdapter () : RecyclerView.Adapter<ContactDetailAdapter.Holder
         holder.detail.text = "쳤습니다."
     }
 
-    inner class Holder(binding: PageItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class Holder(binding: ItemPageBinding) : RecyclerView.ViewHolder(binding.root) {
         val title = binding.tvTitle
         val detail = binding.tvDetail
     }

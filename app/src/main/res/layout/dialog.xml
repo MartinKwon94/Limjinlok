@@ -17,63 +17,63 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:src="@drawable/sample"/>
+            android:src="@drawable/sample" />
     </androidx.cardview.widget.CardView>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <EditText
             android:id="@+id/Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="이름" />
+            android:hint="이름"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/Number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="phone"
-            android:hint="연락처"/>
+            android:hint="연락처"
+            android:inputType="phone" />
 
         <EditText
             android:id="@+id/Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textEmailAddress"
-            android:hint="이메일"/>
+            android:hint="이메일"
+            android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/NickName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="별명" />
+            android:hint="별명"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/Extra1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="임시(추가 대비용1)" />
+            android:hint="임시(추가 대비용1)"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/Extra2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="임시(추가 대비용2)" />
+            android:hint="임시(추가 대비용2)"
+            android:inputType="textPersonName" />
 
     </LinearLayout>
 </LinearLayout>
