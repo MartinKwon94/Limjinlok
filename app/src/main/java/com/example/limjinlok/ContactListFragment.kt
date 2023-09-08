@@ -40,6 +40,7 @@ class ContactListFragment : Fragment() {
         val adapter = dataList?.let { ContactListAdapter(it) }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
+
     }
 
 
