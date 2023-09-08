@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class ContactlistAdapter(val mItems: MutableList<ContactlistData>) :
+class ContactlistAdapter(val mItems: ArrayList<ContactlistData>) :
     RecyclerView.Adapter<ContactViewholder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewholder {
