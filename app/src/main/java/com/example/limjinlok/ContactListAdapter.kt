@@ -5,13 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.limjinlok.model.ContactListData
 
-class ContactListAdapter(val mItems: ArrayList<ContactListData>) :
+class ContactListAdapter(
+    val mItems: ArrayList<ContactListData>,
+    val actions: (Int, ContactListData) -> Unit
+) :
     RecyclerView.Adapter<ContactViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_contactlist, parent, false)
-        return ContactViewHolder(view)
+        return ContactViewHolder(view, actions)
 
     }
 
@@ -25,6 +28,9 @@ class ContactListAdapter(val mItems: ArrayList<ContactListData>) :
             holder.favBut.setImageResource(R.drawable.staron)
         else
             holder.favBut.setImageResource(R.drawable.staroff)
+        holder.itemView.setOnClickListener {
+            actions(position, item)
+        }
     }
 
 

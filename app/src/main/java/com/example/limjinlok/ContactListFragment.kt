@@ -37,7 +37,11 @@ class ContactListFragment : Fragment() {
 
         // RecyclerView를 찾아서 어댑터와 레이아웃 매니저를 설정합니다.
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewContacts)
-        val adapter = dataList?.let { ContactListAdapter(it) }
+        val adapter = dataList?.let {
+            ContactListAdapter(it) { position, item ->
+                // ToDo contactdetialacitivy로 넘어가기 position은 이게 몇번째 아이템인지 item은 해당 아이템의 data만 들어가 있습니다.
+            }
+        }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
     }
