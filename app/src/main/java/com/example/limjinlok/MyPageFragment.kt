@@ -34,14 +34,13 @@ class MyPageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentMyPageBinding.bind(view)
 
-//        binding.asdasd.setOnClickListenr {
-//            val name = binding.text.toString()
-//            val number = binding.text.toString()
-//            val email = binding.text.toString()
-//            val comment = binding.text.toString()
-//        }
+        binding.mpRecyclerview.setOnClickListener {
+//            arguments?.getInt("image",0)?.let { binding.ctPic.setImageResource(it) }
+//            binding.aName.text = arguments?.getString("name")
+//            binding.aNumber.text = arguments?.getString("number")
+//            binding.aNickname.text = arguments?.getString("nickname")
+        }
     }
 
     companion object {
