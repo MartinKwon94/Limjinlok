@@ -28,8 +28,8 @@ class ContactListAdapter(val mItems: ArrayList<ContactListData>) :
             else
                 holder.favBut.setImageResource(R.drawable.staroff)
         }
-        if (item.userData[1].content.length > 5) {
-            val shortenedText = item.userData[1].content.substring(0, 5) + "..."
+        if (item.userData[1].content.length > 4) {
+            val shortenedText = item.userData[1].content.substring(0, 4) + "..."
             holder.tv_nickname.text = shortenedText
 
             // 클릭 이벤트 핸들러를 설정하여 전체 내용을 보이게 함
@@ -39,6 +39,18 @@ class ContactListAdapter(val mItems: ArrayList<ContactListData>) :
             }
         } else {
             holder.tv_nickname.text = item.userData[1].content
+        }
+        if (item.userData[0].content.length > 3) {
+            val shortenedText = item.userData[0].content.substring(0, 3) + "..."
+            holder.tv_name.text = shortenedText
+
+            // 클릭 이벤트 핸들러를 설정하여 전체 내용을 보이게 함
+            holder.tv_name.setOnClickListener {
+                holder.tv_name.text = item.userData[0].content
+                holder.tv_name.setOnClickListener(null)
+            }
+        } else {
+            holder.tv_name.text = item.userData[0].content
         }
 
     }
