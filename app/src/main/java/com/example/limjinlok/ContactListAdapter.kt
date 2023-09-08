@@ -27,6 +27,16 @@ class ContactListAdapter(val mItems: ArrayList<ContactListData>) :
             1 -> TYPE_ODD
             else -> TYPE_GRID
         }
+class ContactListAdapter(
+    val mItems: ArrayList<ContactListData>,
+    val actions: (Int, ContactListData) -> Unit
+) :
+    RecyclerView.Adapter<ContactViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_contactlist, parent, false)
+        return ContactViewHolder(view, actions)
 
     }
 
@@ -152,6 +162,15 @@ class ContactListAdapter(val mItems: ArrayList<ContactListData>) :
                     holder.gr_tv_name.text = item.userData[0].content
                 }
             }
+        holder.profileImage.setImageResource(item.userImage)
+        holder.tv_name.text = item.userData[0].content
+        holder.tv_nickname.text = item.userData[1].content
+        if (mItems[position].isFavorite)
+            holder.favBut.setImageResource(R.drawable.staron)
+        else
+            holder.favBut.setImageResource(R.drawable.staroff)
+        holder.itemView.setOnClickListener {
+            actions(position, item)
         }
     }
 
