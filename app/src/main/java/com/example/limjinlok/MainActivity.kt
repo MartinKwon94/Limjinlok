@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initData() {
         addUser(R.drawable.martinkwon, "권민석", "권마틴", "", "", "", "")
+
         addUser(R.drawable.ryu, "류연주", "류", "", "","","")
         addUser(R.drawable.limyo, "임요환", "테란의 황제", "", "","","")
         addUser(R.drawable.jigaebot, "조병현", "지게로봇", "", "","","")
