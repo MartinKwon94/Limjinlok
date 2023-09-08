@@ -7,20 +7,21 @@ import android.widget.EditText
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.limjinlok.databinding.ActivityMainBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class Dialog : AppCompatActivity() {
 
     //바인딩으로 코드 짤 경우 해당 문구 사용
-    //private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     @SuppressLint("MissingInflatedId", "SetTextI18n", "ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btn = findViewById<FloatingActionButton>(R.id.add_contact_button)
-        btn.setOnClickListener {
+        //val btn = findViewById<FloatingActionButton>(R.id.add_contact_button)
+        binding.addContactButton.setOnClickListener {
 
             //플로팅버튼 클릭시 다이얼로그 시작
             val builder = AlertDialog.Builder(this)
