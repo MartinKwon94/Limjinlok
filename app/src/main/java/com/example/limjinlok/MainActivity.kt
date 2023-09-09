@@ -1,5 +1,6 @@
 package com.example.limjinlok
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
@@ -73,7 +74,7 @@ class MainActivity : AppCompatActivity() {
             ContactListFragment.newInstance(ArrayList(dataList)),
             "Contact"
         )
-        mainViewPagerAdapter.addTabList(MyPageFragment(), "My Page")
+        mainViewPagerAdapter.addTabList(MyPageFragment.newInstance(ArrayList(dataList)), "My Page")
         viewPager.adapter = mainViewPagerAdapter
         TabLayoutMediator(tabLayout, viewPager) { tab, pos ->
             tab.text = mainViewPagerAdapter.getTitleByIndex(pos)
