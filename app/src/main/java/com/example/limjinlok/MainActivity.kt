@@ -41,9 +41,9 @@ class MainActivity : AppCompatActivity() {
         initData()
         initView()
         viewPagerChanged()
-        binding.addContactButton.setOnClickListener {
 
-            //플로팅버튼 클릭시 다이얼로그 시작
+        //플로팅버튼 클릭시 다이얼로그 시작
+        binding.addContactButton.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("연락처 추가")
 
@@ -52,9 +52,6 @@ class MainActivity : AppCompatActivity() {
 
             val confirm = DialogInterface.OnClickListener { dialog1, dialog2 ->
                 val alert = dialog1 as AlertDialog
-
-                //이미지 값 설정
-
 
                 //EditText값 설정
                 val name = dialogBinding.Name.text.toString()
@@ -65,20 +62,11 @@ class MainActivity : AppCompatActivity() {
                 val comment = dialogBinding.Extra2.text.toString()
 
                 if (name.isNotBlank() && contact.isNotBlank()) {
-
-                    //위에서 설정된 값을 각각 이미지와 텍스트로 적용하기
-                    //val testimage = findViewById<ImageView>(R.id.ImageTest)
-                    //val testarea = findViewById<TextView>(R.id.testarea)
-
-
-                    //ProfileImg.setImageResource(R.id.SampleImage)
-                    //tv_name = name
-                    //tv_nickname = nickName
-                    Toast.makeText(this, name, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"추가 완료!",Toast.LENGTH_SHORT).show()
                     addUser(R.drawable.sample, name, nickName, contact, blogUrl, email, comment)
                     updateList()
                 } else {
-                    //이름이나 번호에 공백이 있을시 입력값을 받지않고 다이얼로그가 종료됩니다
+                    //이름이나 번호에 공백이 있을시 입력값을 받지않고 다이얼로그가 종료
                     Toast.makeText(this, "이름과 번호는 필수입니다", Toast.LENGTH_SHORT).show()
                 }
             }
