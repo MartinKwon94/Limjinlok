@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         addUser(R.drawable.jigaebot, "조병현", "지게로봇", "", "","","")
         addUser(R.drawable.leejamong, "홍현민", "에펙하쉴", "", "","","")
         addUser(R.drawable.hongjin, "홍진호", "저그의 황제", "", "","","")
-        addUser(R.drawable.cookiemonster, "황일규", "쿠키몬스커", "", "","","")
+        addUser(R.drawable.cookiemonster, "황일규", "쿠키몬스터", "", "","","")
         addUser(R.drawable.tom, "Tom", "Spiderman", "", "","","")
         addUser(R.drawable.tim, "Timothée", "Tim", "", "","","")
         addUser(R.drawable.zen, "Zendaya", "Zen", "", "","","")

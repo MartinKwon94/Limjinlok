@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.limjinlok.model.ContactListData
 
-class ContactListAdapter(val mItems: ArrayList<ContactListData>) :
+class ContactListAdapter(private val mItems: ArrayList<ContactListData>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val TYPE_EVEN = 0
     private val TYPE_ODD = 1
