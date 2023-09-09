@@ -52,6 +52,7 @@ class ContactListFragment : Fragment() {
         }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
+
     }
 
 
