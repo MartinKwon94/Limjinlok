@@ -5,12 +5,13 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.limjinlok.databinding.ItemContactlistBinding
 import com.example.limjinlok.model.ContactListData
 
 
-class ContactViewHolder(itemView: View, val actions: (Int, ContactListData) -> Unit) : RecyclerView.ViewHolder(itemView) {
-    val profileImage: ImageView = itemView.findViewById(R.id.ProfileImg)
-    val tv_name: TextView = itemView.findViewById(R.id.tv_name)
-    val tv_nickname: TextView = itemView.findViewById(R.id.tv_nickname)
-    val favBut: ImageButton = itemView.findViewById(R.id.btn_fav)
+class ContactViewHolder(itemView: ItemContactlistBinding, val actions: (Int, ContactListData) -> Unit) : RecyclerView.ViewHolder(itemView.root) {
+    val profileImage: ImageView = itemView.ProfileImg
+    val tv_name: TextView = itemView.tvName
+    val tv_nickname: TextView = itemView.tvNickname
+    val favBut: ImageButton = itemView.btnFav
 }

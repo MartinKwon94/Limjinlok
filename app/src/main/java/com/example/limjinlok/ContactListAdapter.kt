@@ -1,48 +1,75 @@
 package com.example.limjinlok
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.limjinlok.databinding.ItemContactlistBinding
+import com.example.limjinlok.databinding.ItemContactlistGridBinding
+import com.example.limjinlok.databinding.ItemContactlistOddBinding
 import com.example.limjinlok.model.ContactListData
 
 
 class ContactListAdapter(
     val mItems: ArrayList<ContactListData>,
     val actions: (Int, ContactListData) -> Unit
-) :
-
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val TYPE_EVEN = 0
     private val TYPE_ODD = 1
     private val TYPE_GRID = 2
+    private var listViewLayout: String = "linear"
+
+    fun getLayoutType(): String {
+        return listViewLayout
+    }
+
+    fun setLayoutType(layout : String) {
+        listViewLayout = layout
+        notifyDataSetChanged()
+    }
 
     override fun getItemViewType(position: Int): Int {
-        return when (position % 2) {
-            0 -> TYPE_EVEN
-            1 -> TYPE_ODD
-            else -> TYPE_GRID
+        return if (listViewLayout == "linear") {
+            when (position % 2) {
+                0 -> TYPE_EVEN
+                1 -> TYPE_ODD
+                else -> TYPE_EVEN
+            }
+        } else {
+            TYPE_GRID
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             TYPE_EVEN -> {
-                val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_contactlist, parent, false)
-                ContactViewHolder(view, actions)
+                ContactViewHolder(
+                    ItemContactlistBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    ), actions
+                )
             }
 
             TYPE_ODD -> {
-                val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_contactlist_odd, parent, false)
-                ContactViewHolderOdd(view, actions)
+                ContactViewHolderOdd(
+                    ItemContactlistOddBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    ), actions
+                )
             }
 
             TYPE_GRID -> {
-                val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_contactlist_grid, parent, false)
-                ContactViewHolderGrid(view, actions)
+                ContactViewHolderGrid(
+                    ItemContactlistGridBinding.inflate(
+                        LayoutInflater.from(parent.context),
+                        parent,
+                        false
+                    ), actions
+                )
             }
 
             else -> throw IllegalArgumentException("Invalid view type")
@@ -169,8 +196,6 @@ class ContactListAdapter(
                           }
                       }*/
                 }
-
-
             }
 
         }
