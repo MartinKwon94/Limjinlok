@@ -40,7 +40,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val dialbind = DialogBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initData()
@@ -61,45 +60,34 @@ class MainActivity : AppCompatActivity() {
                 val alert = dialog1 as AlertDialog
 
                 //이미지 값 설정
-                //val sampleimage = alert.findViewById<ImageView>(R.id.SampleImage)
-                val sampleimage = binding.root
+                val dialogBinding = DialogBinding.inflate(layoutInflater)
 
                 //EditText값 설정
-                val name = alert.findViewById<EditText>(R.id.Name)?.text.toString()
-                val nickName = alert.findViewById<EditText>(R.id.NickName)?.text.toString()
-                val contact = alert.findViewById<EditText>(R.id.Number)?.text.toString()
-                val blogUrl = alert.findViewById<EditText>(R.id.Extra1)?.text.toString()
-                val email = alert.findViewById<EditText>(R.id.Email)?.text.toString()
-                val comment = alert.findViewById<EditText>(R.id.Extra2)?.text.toString()
+                val name = dialogBinding .Name.text.toString()
+                val nickName = dialogBinding.NickName.text.toString()
+                val contact = dialogBinding.Number.text.toString()
+                val blogUrl = dialogBinding.Extra1.text.toString()
+                val email = dialogBinding.Email.text.toString()
+                val comment = dialogBinding.Extra2.text.toString()
 
-                //바인딩으로 교체
-//                val name = dialbind.Name.text.toString()
-//                val nickName = dialbind.NickName.text.toString()
-//                val contact = dialbind.Number.text.toString()
-//                val blogUrl = binding.root.toString()
-//                val email = binding.root.toString()
-//                val comment = binding.root.toString()
-
-                if(name.isNotBlank() && contact.isNotBlank()) {
+                if (name.isNotBlank() && contact.isNotBlank()) {
 
                     //위에서 설정된 값을 각각 이미지와 텍스트로 적용하기
                     //val testimage = findViewById<ImageView>(R.id.ImageTest)
                     //val testarea = findViewById<TextView>(R.id.testarea)
 
 
-
                     //ProfileImg.setImageResource(R.id.SampleImage)
                     //tv_name = name
                     //tv_nickname = nickName
-                    Toast.makeText(this,name,Toast.LENGTH_SHORT).show()
-                    val Plus = addUser(R.drawable.sample,name,nickName,contact,blogUrl,email,comment)
+                    Toast.makeText(this, name, Toast.LENGTH_SHORT).show()
+                    val Plus =
+                        addUser(R.drawable.sample, name, nickName, contact, blogUrl, email, comment)
 
 
-
-                }
-                else{
+                } else {
                     //이름이나 번호에 공백이 있을시 입력값을 받지않고 다이얼로그가 종료됩니다
-                    Toast.makeText(this,"이름과 번호는 필수입니다", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "이름과 번호는 필수입니다", Toast.LENGTH_SHORT).show()
                 }
             }
             //다이얼로그 버튼 기능
