@@ -13,8 +13,7 @@ import com.example.limjinlok.model.ContactListData
 
 
 class ContactDetailActivity : AppCompatActivity() {
-    private var adapter = ContactDetailAdapter()
-
+    private val adapter by lazy { userData?.let { ContactDetailAdapter(it) } }
     private lateinit var binding: ActivityContactDetailBinding
 
     private val itemIndex by lazy {
