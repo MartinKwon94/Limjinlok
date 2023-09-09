@@ -19,12 +19,13 @@ class MyPageFragment : Fragment() {
     private var _binding: FragmentMyPageBinding? = null
     private val binding get() = _binding!!
     private val dataList by lazy {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             arguments?.getParcelableArrayList("key", ContactListData::class.java)
         } else {
             arguments?.getParcelableArrayList("key")
         }
     }
+    private val adapter by lazy { dataList?.let { ContactDetailAdapter(it[0]) } }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,24 +46,14 @@ class MyPageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewContacts)
-        val adapter = dataList?.let { ContactListAdapter(it) }
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
-
-        val binding = FragmentMyPageBinding.bind(view)
-
-//        binding.asdasd.setOnClickListenr {
-//            val name = binding.text.toString()
-//            val number = binding.text.toString()
-//            val email = binding.text.toString()
-//            val comment = binding.text.toString()
+        binding.textView.text = dataList?.get(0)?.userData!![0].content
+        binding.mpRecyclerview.adapter = adapter
+        binding.mpRecyclerview.layoutManager = LinearLayoutManager(context)
 //        }
     }
-    lateinit var arguments : Bundle
-
 
     companion object {
+        lateinit var arguments: Bundle
 
         @JvmStatic
         fun newInstance(dataList: ArrayList<ContactListData>) = MyPageFragment().apply {

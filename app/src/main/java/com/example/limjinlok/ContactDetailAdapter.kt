@@ -17,16 +17,17 @@ class ContactDetailAdapter(private val items: ContactListData) :
         return Holder(binding)
     }
 
-    override fun getItemCount(): Int = items.userData.size
+    override fun getItemCount(): Int = items.userData.size - 1
 
     //데이터를 넣어줌
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.title.text = items.userData[position].name
-        holder.detail.text = items.userData[position].content
+        holder.title.text = items.userData[position + 1].name
+        holder.detail.text = items.userData[position + 1].content
     }
 
     inner class Holder(binding: ItemPageBinding) : RecyclerView.ViewHolder(binding.root) {
         val title = binding.tvTitle
         val detail = binding.tvDetail
     }
+
 }
