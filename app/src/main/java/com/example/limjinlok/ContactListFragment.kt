@@ -3,6 +3,7 @@ package com.example.limjinlok
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -42,16 +43,12 @@ class ContactListFragment : Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewContacts)
         val adapter = dataList?.let {
             ContactListAdapter(it) { position, item ->
-
-                val intent = Intent (getActivity(), ContactDetailActivity::class.java)
+                val intent = Intent (activity, ContactDetailActivity::class.java)
                 intent.putExtra("item_index", position)
                 intent.putExtra("data", item)
-                getActivity()?.startActivity(intent)
-
-
-
-// ToDo contactdetialacitivy로 넘어가기 position은 이게 몇번째 아이템인지 item은 해당 아이템의 data만 들어가 있습니다.
-            }
+                Log.d("test", item.toString())
+                activity?.startActivity(intent)
+          }
         }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
