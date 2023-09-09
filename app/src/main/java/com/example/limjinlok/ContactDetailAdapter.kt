@@ -7,7 +7,8 @@ import com.example.limjinlok.databinding.ItemPageBinding
 import com.example.limjinlok.model.ContactListData
 import com.example.limjinlok.model.UserDataModel
 
-class ContactDetailAdapter(private val items: ContactListData) : RecyclerView.Adapter<ContactDetailAdapter.Holder>() {
+class ContactDetailAdapter(private val items: ContactListData) :
+    RecyclerView.Adapter<ContactDetailAdapter.Holder>() {
 
 
     //아이템 레이아웃을 return
@@ -16,9 +17,7 @@ class ContactDetailAdapter(private val items: ContactListData) : RecyclerView.Ad
         return Holder(binding)
     }
 
-    override fun getItemCount(): Int {
-        return items.userData.size
-    }
+    override fun getItemCount(): Int = items.userData.size
 
     //데이터를 넣어줌
     override fun onBindViewHolder(holder: Holder, position: Int) {

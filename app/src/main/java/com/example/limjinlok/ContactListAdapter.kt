@@ -1,11 +1,7 @@
 package com.example.limjinlok
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.limjinlok.model.ContactListData
 
@@ -24,6 +20,7 @@ class ContactListAdapter(
             1 -> TYPE_ODD
             else -> TYPE_GRID
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -52,6 +49,7 @@ class ContactListAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item: ContactListData = mItems[position]
+        holder.itemView.setOnClickListener { actions(position, item) }
         when (holder) {
             is ContactViewHolder -> {
                 holder.profileImage.setImageResource(item.userImage)
@@ -164,28 +162,6 @@ class ContactListAdapter(
         return mItems.size
     }
 
-    class ContactViewHolder(itemView: View, val actions: (Int, ContactListData) -> Unit) :
-        RecyclerView.ViewHolder(itemView) {
-        val profileImage: ImageView = itemView.findViewById(R.id.ProfileImg)
-        val tv_name: TextView = itemView.findViewById(R.id.tv_name)
-        val tv_nickname: TextView = itemView.findViewById(R.id.tv_nickname)
-        val favBut: ImageButton = itemView.findViewById(R.id.btn_fav)
-    }
-
-    class ContactViewHolderGrid(itemView: View, val actions: (Int, ContactListData) -> Unit) :
-        RecyclerView.ViewHolder(itemView) {
-        val gr_profileImage: ImageView = itemView.findViewById(R.id.ProfileImggrid)
-        val gr_tv_name: TextView = itemView.findViewById(R.id.tv_namegrid)
-        val gr_tv_nickname: TextView = itemView.findViewById(R.id.tv_nicknamegrid)
-    }
-
-    class ContactViewHolderOdd(itemView: View, val actions: (Int, ContactListData) -> Unit) :
-        RecyclerView.ViewHolder(itemView) {
-        val Od_profileImage: ImageView = itemView.findViewById(R.id.ProfileImgodd)
-        val Od_tv_name: TextView = itemView.findViewById(R.id.tv_nameodd)
-        val Od_tv_nickname: TextView = itemView.findViewById(R.id.tv_nicknameodd)
-        val Od_favBut: ImageButton = itemView.findViewById(R.id.btn_favodd)
-    }
 
 }
 
