@@ -49,6 +49,12 @@ class ContactListAdapter(
         }
     }
 
+    fun updateData(newDataList: ArrayList<ContactListData>) {
+        mItems.clear()
+        mItems.addAll(newDataList)
+        notifyDataSetChanged()
+    }
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item: ContactListData = mItems[position]
         holder.itemView.setOnClickListener { actions(position, item) }

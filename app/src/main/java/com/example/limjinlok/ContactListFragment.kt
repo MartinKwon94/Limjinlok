@@ -26,6 +26,17 @@ class ContactListFragment : Fragment() {
             arguments?.getParcelableArrayList("key")
         }
     }
+    private val adapter by lazy {
+        dataList?.let {
+            ContactListAdapter(it) { position, item ->
+                val intent = Intent (activity, ContactDetailActivity::class.java)
+                intent.putExtra("item_index", position)
+                intent.putExtra("data", item)
+                Log.d("test", item.toString())
+                activity?.startActivity(intent)
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +49,16 @@ class ContactListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // RecyclerView를 찾아서 어댑터와 레이아웃 매니저를 설정합니다.
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewContacts)
-        val adapter = dataList?.let {
-            ContactListAdapter(it) { position, item ->
-                val intent = Intent (activity, ContactDetailActivity::class.java)
-                intent.putExtra("item_index", position)
-                intent.putExtra("data", item)
-                Log.d("test", item.toString())
-                activity?.startActivity(intent)
-          }
-        }
+        val recyclerView = binding.recyclerViewContacts
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
 
     }
 
+    fun updateData(newDataList: ArrayList<ContactListData>) {
+        val adapter =  binding.recyclerViewContacts.adapter as ContactListAdapter
+        adapter.updateData(newDataList)
+    }
 
     companion object {
 

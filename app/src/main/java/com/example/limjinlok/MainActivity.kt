@@ -1,12 +1,16 @@
 package com.example.limjinlok
 
+import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.limjinlok.databinding.ActivityMainBinding
+import com.example.limjinlok.databinding.DialogBinding
 import com.example.limjinlok.model.ContactListData
 import com.example.limjinlok.model.UserDataModel
 import com.google.android.material.tabs.TabLayoutMediator
@@ -37,23 +41,68 @@ class MainActivity : AppCompatActivity() {
         initData()
         initView()
         viewPagerChanged()
+        binding.addContactButton.setOnClickListener {
+
+            //플로팅버튼 클릭시 다이얼로그 시작
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("연락처 추가")
+
+            val dialogBinding = DialogBinding.inflate(layoutInflater)
+            builder.setView(dialogBinding.root)
+
+            val confirm = DialogInterface.OnClickListener { dialog1, dialog2 ->
+                val alert = dialog1 as AlertDialog
+
+                //이미지 값 설정
+
+
+                //EditText값 설정
+                val name = dialogBinding.Name.text.toString()
+                val nickName = dialogBinding.NickName.text.toString()
+                val contact = dialogBinding.Number.text.toString()
+                val blogUrl = dialogBinding.Extra1.text.toString()
+                val email = dialogBinding.Email.text.toString()
+                val comment = dialogBinding.Extra2.text.toString()
+
+                if (name.isNotBlank() && contact.isNotBlank()) {
+
+                    //위에서 설정된 값을 각각 이미지와 텍스트로 적용하기
+                    //val testimage = findViewById<ImageView>(R.id.ImageTest)
+                    //val testarea = findViewById<TextView>(R.id.testarea)
+
+
+                    //ProfileImg.setImageResource(R.id.SampleImage)
+                    //tv_name = name
+                    //tv_nickname = nickName
+                    Toast.makeText(this, name, Toast.LENGTH_SHORT).show()
+                    addUser(R.drawable.sample, name, nickName, contact, blogUrl, email, comment)
+                    updateList()
+                } else {
+                    //이름이나 번호에 공백이 있을시 입력값을 받지않고 다이얼로그가 종료됩니다
+                    Toast.makeText(this, "이름과 번호는 필수입니다", Toast.LENGTH_SHORT).show()
+                }
+            }
+            //다이얼로그 버튼 기능
+            builder.setPositiveButton("확인", confirm)
+            builder.setNegativeButton("취소", null)
+            builder.show()
+        }
     }
 
 
     private fun initData() {
         addUser(R.drawable.martinkwon, "권민석", "권마틴", "", "", "", "")
-
-        addUser(R.drawable.ryu, "류연주", "류", "", "","","")
-        addUser(R.drawable.limyo, "임요환", "테란의 황제", "", "","","")
-        addUser(R.drawable.jigaebot, "조병현", "지게로봇", "", "","","")
-        addUser(R.drawable.leejamong, "홍현민", "에펙하쉴", "", "","","")
-        addUser(R.drawable.hongjin, "홍진호", "저그의 황제", "", "","","")
-        addUser(R.drawable.cookiemonster, "황일규", "쿠키몬스터", "", "","","")
-        addUser(R.drawable.tom, "Tom", "Spiderman", "", "","","")
-        addUser(R.drawable.tim, "Timothée", "Tim", "", "","","")
-        addUser(R.drawable.zen, "Zendaya", "Zen", "", "","","")
-        addUser(R.drawable.ash, "한지우", "지우", "", "","","")
-        addUser(R.drawable.garyoak, "오바람", "재수탱", "", "","","")
+        addUser(R.drawable.ryu, "류연주", "류", "", "", "", "")
+        addUser(R.drawable.limyo, "임요환", "테란의 황제", "", "", "", "")
+        addUser(R.drawable.jigaebot, "조병현", "지게로봇", "", "", "", "")
+        addUser(R.drawable.leejamong, "홍현민", "에펙하쉴", "", "", "", "")
+        addUser(R.drawable.hongjin, "홍진호", "저그의 황제", "", "", "", "")
+        addUser(R.drawable.cookiemonster, "황일규", "쿠키몬스터", "", "", "", "")
+        addUser(R.drawable.tom, "Tom", "Spiderman", "", "", "", "")
+        addUser(R.drawable.tim, "Timothée", "Tim", "", "", "", "")
+        addUser(R.drawable.zen, "Zendaya", "Zen", "", "", "", "")
+        addUser(R.drawable.ash, "한지우", "지우", "", "", "", "")
+        addUser(R.drawable.garyoak, "오바람", "재수탱", "", "", "", "")
     }
 
     private fun viewPagerChanged() = with(binding) {
@@ -101,6 +150,11 @@ class MainActivity : AppCompatActivity() {
         userData.add(UserDataModel("이메일", email))
         userData.add(UserDataModel("한마디", comment))
         dataList.add(ContactListData(image, isFavorite, userData))
+    }
+
+    private fun updateList(){
+        val contactListFragment = mainViewPagerAdapter.getFragmentByIndex(0) as? ContactListFragment
+        contactListFragment?.updateData(ArrayList(dataList))
     }
 
 }
