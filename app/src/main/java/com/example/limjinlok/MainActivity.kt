@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import android.view.Menu
+import android.widget.Adapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.limjinlok.databinding.ActivityMainBinding
@@ -53,17 +54,17 @@ class MainActivity : AppCompatActivity() {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("연락처 추가")
 
-            val v1 = layoutInflater.inflate(R.layout.dialog, null)
-            builder.setView(v1)
+            val dialogBinding = DialogBinding.inflate(layoutInflater)
+            builder.setView(dialogBinding.root)
 
             val confirm = DialogInterface.OnClickListener { dialog1, dialog2 ->
                 val alert = dialog1 as AlertDialog
 
                 //이미지 값 설정
-                val dialogBinding = DialogBinding.inflate(layoutInflater)
+
 
                 //EditText값 설정
-                val name = dialogBinding .Name.text.toString()
+                val name = dialogBinding.Name.text.toString()
                 val nickName = dialogBinding.NickName.text.toString()
                 val contact = dialogBinding.Number.text.toString()
                 val blogUrl = dialogBinding.Extra1.text.toString()
@@ -81,8 +82,8 @@ class MainActivity : AppCompatActivity() {
                     //tv_name = name
                     //tv_nickname = nickName
                     Toast.makeText(this, name, Toast.LENGTH_SHORT).show()
-                    val Plus =
-                        addUser(R.drawable.sample, name, nickName, contact, blogUrl, email, comment)
+                    addUser(R.drawable.sample, name, nickName, contact, blogUrl, email, comment)
+
 
 
                 } else {
