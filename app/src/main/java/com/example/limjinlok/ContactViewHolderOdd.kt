@@ -5,8 +5,9 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.limjinlok.model.ContactListData
 
-class ContactViewHolderOdd (itemView: View) : RecyclerView.ViewHolder(itemView) {
+class ContactViewHolderOdd (itemView: View, val actions: (Int, ContactListData) -> Unit) : RecyclerView.ViewHolder(itemView) {
     val Od_profileImage: ImageView = itemView.findViewById(R.id.ProfileImgodd)
     val Od_tv_name: TextView = itemView.findViewById(R.id.tv_nameodd)
     val Od_tv_nickname: TextView = itemView.findViewById(R.id.tv_nicknameodd)
