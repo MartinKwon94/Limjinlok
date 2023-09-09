@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.limjinlok.databinding.FragmentContactlistBinding
@@ -26,6 +25,16 @@ class ContactListFragment : Fragment() {
             arguments?.getParcelableArrayList("key")
         }
     }
+    private val adapter by lazy {
+        dataList?.let {
+            ContactListAdapter(it) { position, item ->
+                val intent = Intent(activity, ContactDetailActivity::class.java)
+                intent.putExtra("item_index", position)
+                intent.putExtra("data", item)
+                activity?.startActivity(intent)
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,22 +47,28 @@ class ContactListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // RecyclerView를 찾아서 어댑터와 레이아웃 매니저를 설정합니다.
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewContacts)
-        val adapter = dataList?.let {
-            ContactListAdapter(it) { position, item ->
-                val intent = Intent (activity, ContactDetailActivity::class.java)
-                intent.putExtra("item_index", position)
-                intent.putExtra("data", item)
-                Log.d("test", item.toString())
-                activity?.startActivity(intent)
-          }
-        }
+        val recyclerView = binding.recyclerViewContacts
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        binding.changeLayoutButton.setImageResource(R.drawable.icon_headline)
+        binding.changeLayoutButton.setOnClickListener {
+            if (adapter?.getLayoutType() == "linear") {
+                adapter?.setLayoutType("grid")
+                recyclerView.layoutManager =
+                    GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
+                binding.changeLayoutButton.setImageResource(R.drawable.icon_grid)
+            } else {
+                adapter?.setLayoutType("linear")
+                recyclerView.layoutManager =
+                    LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+                binding.changeLayoutButton.setImageResource(R.drawable.icon_headline)
+            }
+        }
     }
 
+    fun updateData(newDataList: ArrayList<ContactListData>) {
+        val adapter = binding.recyclerViewContacts.adapter as ContactListAdapter
+        adapter.updateData(newDataList)
+    }
 
     companion object {
 
