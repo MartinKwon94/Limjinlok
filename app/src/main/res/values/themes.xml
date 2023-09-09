@@ -5,5 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.Limjinlok" parent="Base.Theme.Limjinlok" />
+    <style name="Theme.Limjinlok" parent="Base.Theme.Limjinlok">
+        <item name="colorPrimary">#FF7511</item>
+    </style>
 </resources>

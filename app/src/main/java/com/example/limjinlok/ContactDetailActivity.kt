@@ -41,8 +41,6 @@ class ContactDetailActivity : AppCompatActivity() {
         binding.cdRecyclerview.adapter = adapter
         binding.cdRecyclerview.layoutManager = LinearLayoutManager(this)
         userData?.let { binding.imageView.setImageResource(it.userImage) }
-        Log.d("test", userData.toString())
-        Log.d("test", itemIndex.toString())
     }
 
 }

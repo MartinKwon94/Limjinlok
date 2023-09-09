@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.limjinlok.databinding.FragmentContactlistBinding
@@ -29,10 +28,9 @@ class ContactListFragment : Fragment() {
     private val adapter by lazy {
         dataList?.let {
             ContactListAdapter(it) { position, item ->
-                val intent = Intent (activity, ContactDetailActivity::class.java)
+                val intent = Intent(activity, ContactDetailActivity::class.java)
                 intent.putExtra("item_index", position)
                 intent.putExtra("data", item)
-                Log.d("test", item.toString())
                 activity?.startActivity(intent)
             }
         }
@@ -51,12 +49,24 @@ class ContactListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView = binding.recyclerViewContacts
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
-
+        binding.changeLayoutButton.setImageResource(R.drawable.icon_headline)
+        binding.changeLayoutButton.setOnClickListener {
+            if (adapter?.getLayoutType() == "linear") {
+                adapter?.setLayoutType("grid")
+                recyclerView.layoutManager =
+                    GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
+                binding.changeLayoutButton.setImageResource(R.drawable.icon_grid)
+            } else {
+                adapter?.setLayoutType("linear")
+                recyclerView.layoutManager =
+                    LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+                binding.changeLayoutButton.setImageResource(R.drawable.icon_headline)
+            }
+        }
     }
 
     fun updateData(newDataList: ArrayList<ContactListData>) {
-        val adapter =  binding.recyclerViewContacts.adapter as ContactListAdapter
+        val adapter = binding.recyclerViewContacts.adapter as ContactListAdapter
         adapter.updateData(newDataList)
     }
 

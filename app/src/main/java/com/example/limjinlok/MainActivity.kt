@@ -109,6 +109,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() = with(binding) {
+        root.background = rainbow
         mainViewPagerAdapter.addTabList(
             ContactListFragment.newInstance(ArrayList(dataList)),
             "Contact"

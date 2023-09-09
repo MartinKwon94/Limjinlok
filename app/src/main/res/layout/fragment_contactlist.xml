@@ -5,15 +5,24 @@
     android:id="@+id/contactfragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mp_rainbow"
-    android:layout_marginTop="20dp"
+    android:background="@android:color/transparent"
     tools:context="ContactListFragment">
 
+    <ImageButton
+        android:id="@+id/change_layout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/change_layout_button">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewContacts"
