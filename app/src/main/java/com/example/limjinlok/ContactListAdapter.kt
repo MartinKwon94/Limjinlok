@@ -136,7 +136,7 @@ class ContactListAdapter(
                     val shortenedText = item.userData[1].content.substring(0, 4) + "..."
                     holder.gr_tv_nickname.text = shortenedText
 
-            is ContactViewHolderGrid -> {
+          /*  is ContactViewHolderGrid -> {
                 val gridItemData = item.gridItemData
                 if (gridItemData != null) {
                     holder.gr_profileImage.setImageResource(item.userImage)
@@ -167,16 +167,21 @@ class ContactListAdapter(
                         holder.gr_tv_name.text = item.userData[0].content
                     }
                 }
-            }
+            }*/
         }
 
 
 
     }
+
+    }
+
+    }
+
     override fun getItemCount(): Int {
         return mItems.size
     }
+    }
 
-}
 
 
