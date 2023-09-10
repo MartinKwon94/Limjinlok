@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="임시(추가 대비용1)"
+            android:hint="블로그 주소"
             android:inputType="textPersonName" />
 
         <EditText
@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="임시(추가 대비용2)"
+            android:hint="한마디"
             android:inputType="textPersonName" />
 
     </LinearLayout>
