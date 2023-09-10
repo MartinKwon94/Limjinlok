@@ -79,18 +79,18 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun initData() {
-        addUser(R.drawable.martinkwon, "권민석", "권마틴", "", "", "", "성시경을 먹으면? 위장 내 시경")
-        addUser(R.drawable.ryu, "류연주", "류", "", "", "", "공기를 먹고 커지면? 에어로빅")
-        addUser(R.drawable.limyo, "임요환", "테란의 황제", "", "", "", "곰돌이 푸가 차에 치이면? 카푸치노")
-        addUser(R.drawable.jigaebot, "조병현", "지게로봇", "", "", "", "입이 S 모양인 사람은? EBS")
-        addUser(R.drawable.leejamong, "홍현민", "에펙하쉴", "", "", "", "소가 번개에 맞아 죽으면? 우사인볼트")
-        addUser(R.drawable.hongjin, "홍진호", "저그의 황제", "", "", "", "오리를 생으로 먹으면? 회오리")
-        addUser(R.drawable.cookiemonster, "황일규", "쿠키몬스터", "", "", "", "누룽지를 영어로 하면? 바비브라운")
-        addUser(R.drawable.tom, "Tom", "Spiderman", "", "", "", "손가락은 영어로 핑, 주먹은 뭐게요? 오므린거")
-        addUser(R.drawable.tim, "Timothée", "Tim", "", "", "", "오리가 하늘을 날면서 요리가 되면? 푸드덕")
-        addUser(R.drawable.zen, "Zendaya", "Zen", "", "", "", "강아지가 한 마리만 있는 나라는? 독일")
-        addUser(R.drawable.ash, "한지우", "지우", "", "", "", "신데렐라가 못자면? 못짜렐라")
-        addUser(R.drawable.garyoak, "오바람", "재수탱", "", "", "", "곰이 사과를 먹는 방법? 베어 먹지")
+        addUser(R.drawable.martinkwon, "권민석", "권마틴", "010-0101-0101", "https://www.naver.com/", "sparta123@nbk.com", "성시경을 먹으면? 위장 내 시경")
+        addUser(R.drawable.ryu, "류연주", "류", "010-0101-0101", "https://www.naver.com/", "sparta123@nbk.com", "공기를 먹고 커지면? 에어로빅")
+        addUser(R.drawable.limyo, "임요환", "테란의 황제", "010-0101-0101", "https://www.naver.com/", "sparta123@nbk.com", "곰돌이 푸가 차에 치이면? 카푸치노")
+        addUser(R.drawable.jigaebot, "조병현", "지게로봇", "010-0101-0101", "https://www.naver.com/", "sparta123@nbk.com", "입이 S 모양인 사람은? EBS")
+        addUser(R.drawable.leejamong, "홍현민", "에펙하쉴", "010-0101-0101", "https://www.naver.com/", "sparta123@nbk.com", "소가 번개에 맞아 죽으면? 우사인볼트")
+        addUser(R.drawable.hongjin, "홍진호", "저그의 황제", "010-0101-0101", "https://www.naver.com/", "sparta123@nbk.com", "오리를 생으로 먹으면? 회오리")
+        addUser(R.drawable.cookiemonster, "황일규", "쿠키몬스터", "010-0101-0101", "https://www.naver.com/", "sparta123@nbk.com", "누룽지를 영어로 하면? 바비브라운")
+        addUser(R.drawable.tom, "Tom", "Spiderman", "010-0101-0101", "https://www.naver.com/", "sparta123@nbk.com", "손가락은 영어로 핑, 주먹은 뭐게요? 오므린거")
+        addUser(R.drawable.tim, "Timothée", "Tim", "010-0101-0101", "https://www.naver.com/", "sparta123@nbk.com", "오리가 하늘을 날면서 요리가 되면? 푸드덕")
+        addUser(R.drawable.zen, "Zendaya", "Zen", "010-0101-0101", "https://www.naver.com/", "sparta123@nbk.com", "강아지가 한 마리만 있는 나라는? 독일")
+        addUser(R.drawable.ash, "한지우", "지우", "010-0101-0101", "https://www.naver.com/", "sparta123@nbk.com", "신데렐라가 못자면? 못짜렐라")
+        addUser(R.drawable.garyoak, "오바람", "재수탱", "010-0101-0101", "https://www.naver.com/", "sparta123@nbk.com", "곰이 사과를 먹는 방법? 베어 먹지")
     }
 
     private fun viewPagerChanged() = with(binding) {
